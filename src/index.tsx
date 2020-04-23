@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Counter } from './counter';
+import './main.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { S } from './styles';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const App: React.FC = () => {
+  const [text, setText] = React.useState('');
+
+  return (
+    <S.Wrapper>
+      <S.Input
+        placeholder="Enter your text here"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <Counter />
+    </S.Wrapper>
+  );
+};
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<App />, rootElement);

@@ -38,7 +38,14 @@ const shallowEqual = ['const x = {}', 'const y = {}', 'x === y = true'];
 
 const reactKey = [
   'state/props change (new object/pointer for referencial state)',
-  'parent component re-renders, (unless memoized)',
+  'parent component re-renders (unless memoized)',
+];
+
+const reactMemo = [
+  'expensive calculations',
+  'securing dependencies',
+  'large data transformation',
+  'components that frequently changes its state/props',
 ];
 
 const passPrimitive = [
@@ -47,15 +54,15 @@ const passPrimitive = [
   'a = 20',
   'console.log(a) = 20',
   'console.log(b) = 10',
-]
+];
 
 const passReference = [
-  'let x = { z: 10 }',
-  'let y = x',
+  'const x = { z: 10 }',
+  'const y = x',
   'x.z = 20',
   'console.log(x) = { z: 20 }',
   'console.log(y) = { z: 20 }',
-]
+];
 
 export const Docs = () => (
   <Carousel>
@@ -95,8 +102,10 @@ export const Docs = () => (
             ))}
           </div>
         </S.Row>
-        <S.Text>Primitives are copied by their value.</S.Text>
-        <S.Text>Objects are copied by their reference.</S.Text>
+        <div style={{ paddingTop: '5rem' }}>
+          <S.Text>Primitives are copied by their value.</S.Text>
+          <S.Text>Objects are copied by their reference.</S.Text>
+        </div>
       </S.Container>
     </div>
     <div>
@@ -140,16 +149,24 @@ export const Docs = () => (
     <div>
       <S.Container>
         <S.Title>React will re-render when</S.Title>
-        <ul>
-          {reactKey.map((value) => (
-            <li style={{ color: '#fff' }}>
-              <S.Text>{value}</S.Text>
-            </li>
-          ))}
-        </ul>
-        <S.Text>
+        {reactKey.map((value) => (
+          <S.Text>★ {value}</S.Text>
+        ))}
+        <S.Text style={{ paddingTop: '5rem' }}>
           Note: React is using Object.is comparison which is very similar to
           strict equality
+        </S.Text>
+      </S.Container>
+    </div>
+    <div>
+      <S.Container>
+        <S.Title>When to use memoization?</S.Title>
+        {reactMemo.map((value) => (
+          <S.Text>★ {value}</S.Text>
+        ))}
+        <S.Text style={{ paddingTop: '5rem' }}>
+          Performance optimizations always come with a cost but do not always
+          come with a benefit.
         </S.Text>
       </S.Container>
     </div>

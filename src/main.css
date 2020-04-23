@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 *,
 *::before,
 *::after {
@@ -14,4 +16,24 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
+}
+
+/* antd */
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 100vh;
+  padding: 2rem;
+  background-image: linear-gradient(to right, #43cea2, #185a9d);
+  overflow: hidden;
+}
+
+.flex-column-center {
+  display: flex;
+  align-items: center;
+justify-items: flex-start;
+  flex-direction: column;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
 }

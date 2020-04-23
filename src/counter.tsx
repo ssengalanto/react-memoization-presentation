@@ -10,7 +10,7 @@ interface Props {
   // data?: string;
 }
 
-export const Counter: React.FC<Props> = React.memo(() => {
+export const Counter: React.FC<Props> = () => {
   const [count, setCount] = React.useState(0);
   const renders = React.useRef(0);
   return (
@@ -24,9 +24,9 @@ export const Counter: React.FC<Props> = React.memo(() => {
       </S.Button>
 
       <S.Div>
-        <S.Text>count: {count}</S.Text>
-        <S.Text>renders: {renders.current++}</S.Text>
+        <S.Value>count: {count}</S.Value>
+        <S.Value>renders: {renders.current++}</S.Value>
       </S.Div>
     </>
   );
-});
+};

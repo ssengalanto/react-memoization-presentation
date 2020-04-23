@@ -9,6 +9,14 @@ const Wrapper = styled.div`
   background-image: linear-gradient(to right, #43cea2, #185a9d);
 `;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+`;
+
 const Input = styled.input`
   border: none;
   padding: 1.5rem 2rem;
@@ -40,10 +48,44 @@ const Div = styled.div`
   min-width: 600px;
 `;
 
-const Text = styled.p`
+const Value = styled.p`
   font-size: 3.5rem;
   color: #fff;
   text-transform: capitalize;
 `;
 
-export const S = { Wrapper, Input, Button, Div, Text };
+const Text = styled.p`
+  color: #fff;
+  font-size: 2rem;
+`;
+
+const Title = styled.p`
+  color: #fff;
+  font-size: 4rem;
+  padding-bottom: 5rem;
+`;
+
+const SubTitle = styled.p`
+  color: #fff;
+  font-size: 3rem;
+`;
+
+const Row = styled.div`
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  width: 100%;
+`;
+
+export const S = {
+  Wrapper,
+  Container,
+  Input,
+  Button,
+  Div,
+  Value,
+  Text,
+  Title,
+  Row,
+  SubTitle,
+};
